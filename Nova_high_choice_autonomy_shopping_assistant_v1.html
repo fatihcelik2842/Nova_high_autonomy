@@ -477,6 +477,7 @@
         }
 
         const messageTimes = [
+            800,    // Bot greeting
             3500,   // User 1
             12000,  // Bot 1
             3000,   // User 2
@@ -505,6 +506,10 @@
         }
 
         const messages = [
+            {
+                type: 'bot',
+                content: `Hi, I'm Nova, your GenAI shopping assistant. How can I help you today?`
+            },
             {
                 type: 'user',
                 content: `I am looking for a backpack under US $100 that I can pick up from a store.`
@@ -615,7 +620,7 @@
                 }
 
                 const messageDiv = document.createElement('div');
-                messageDiv.className = `message ${msg.type}`;
+                messageDiv.className = index === 0 ? `message ${msg.type} show` : `message ${msg.type}`;
 
                 if (msg.type === 'user') {
                     messageDiv.innerHTML = `
